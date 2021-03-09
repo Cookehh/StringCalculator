@@ -22,8 +22,8 @@ export class CommaDelimitedCappedSumStrategy implements Strategy<number> {
         this.cap = cap;
     }
 
-    public execute(value: String | null): StrategyResult<number> {
-        const validatorResponse = this.firstInChain.add(value);
+    public add(value: String | null): StrategyResult<number> {
+        const validatorResponse = this.firstInChain.execute(value);
         let result = this.calculateResult(validatorResponse);
         let error = this.calculateError(validatorResponse)
         return {

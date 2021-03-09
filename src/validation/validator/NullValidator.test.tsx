@@ -10,7 +10,7 @@ beforeEach(() => {
 test('Null given to null validator', () => {
     const providedValue = null;
 
-    const result = nullValidator.add(providedValue);
+    const result = nullValidator.execute(providedValue);
 
     expect(result).toBe(ValidatorResponse.NULL);
 });
@@ -18,7 +18,7 @@ test('Null given to null validator', () => {
 test('An empty string given to the null validator', () => {
     const providedValue = "";
 
-    const result = nullValidator.add(providedValue);
+    const result = nullValidator.execute(providedValue);
 
     expect(result).toBe(ValidatorResponse.SUCCESS);
     expect(nullValidator.result).toEqual(providedValue);
@@ -27,7 +27,7 @@ test('An empty string given to the null validator', () => {
 test('An populated string given to the null validator', () => {
     const providedValue = "Populated";
 
-    const result = nullValidator.add(providedValue);
+    const result = nullValidator.execute(providedValue);
 
     expect(result).toBe(ValidatorResponse.SUCCESS);
     expect(nullValidator.result).toEqual(providedValue);

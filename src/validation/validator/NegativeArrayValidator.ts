@@ -6,7 +6,7 @@ export class NegativeArrayValidator extends Validator<Array<number>, Array<numbe
     result: Array<number> = [];
     inputValue: Array<number> = [];
 
-    add(inValue: Array<number>): ValidatorResponse {
+    execute(inValue: Array<number>): ValidatorResponse {
         this.inputValue = inValue;
         
         for (let arrayValue of inValue) {

@@ -6,7 +6,7 @@ export class EmptyValidator extends Validator<String, String> {
     result: String = "";
     inputValue: String = "";
 
-    add(inValue: String): ValidatorResponse {
+    execute(inValue: String): ValidatorResponse {
         this.inputValue = inValue;
         if (inValue.trim().length == 0) {
             return ValidatorResponse.EMPTY;

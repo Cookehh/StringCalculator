@@ -6,7 +6,7 @@ export class NullValidator extends Validator<String | null, String> {
     result: String = "";
     inputValue: String | null = null;
 
-    add(inValue: String | null): ValidatorResponse {
+    execute(inValue: String | null): ValidatorResponse {
         this.inputValue = inValue;
         if (inValue == null) {
             return ValidatorResponse.NULL;

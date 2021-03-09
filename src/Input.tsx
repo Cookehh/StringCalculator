@@ -32,7 +32,7 @@ class Input extends React.Component<InputProps, InputState> {
     }
 
     private calculateResult(event: any) {
-        let output = this.strategy.execute(event.target.value)
+        let output = this.strategy.add(event.target.value)
         if (output.validatorResponse == ValidatorResponse.SUCCESS) {
             this.setState({result: output.result, errorMessage: null})
         }

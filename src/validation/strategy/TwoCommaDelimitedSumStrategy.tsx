@@ -19,8 +19,8 @@ export class TwoCommaDelimitedSumStrategy implements Strategy<Number>{
         );
     }
 
-    public execute(value: string | null): StrategyResult<number> {
-        const validatorResponse = this.firstInChain.add(value);
+    public add(value: string | null): StrategyResult<number> {
+        const validatorResponse = this.firstInChain.execute(value);
         let result = this.calculateResult(validatorResponse);
         return {
             validatorResponse: validatorResponse == ValidatorResponse.EMPTY 

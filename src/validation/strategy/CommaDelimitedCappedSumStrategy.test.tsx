@@ -10,7 +10,7 @@ test('Entering two numbers below cap separated by commas should return sum', () 
         errorMessage: null
     }
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });
@@ -24,7 +24,7 @@ test('Entering one number below cap should return the sum', () => {
         errorMessage: null
     }
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });
@@ -38,7 +38,7 @@ test('Entering three numbers below cap should return the sum', () => {
         errorMessage: null
     }
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });
@@ -52,7 +52,7 @@ test('Entering null should return null', () => {
         errorMessage: null
     };
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });
@@ -66,7 +66,7 @@ test('Entering an empty string should return 0', () => {
         errorMessage: null
     };
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });
@@ -80,7 +80,7 @@ test('Entering a non-comma delimited string should return null', () => {
         errorMessage: null
     };
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });
@@ -94,7 +94,7 @@ test('Entering a non-number comma delimited string should return null', () => {
         errorMessage: null
     };
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });
@@ -108,7 +108,7 @@ test('Entering a value above cap should ignore value', () => {
         errorMessage: null
     };
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });
@@ -122,7 +122,7 @@ test('Entering a comma delimited string with all values below 0 should return an
         errorMessage: "Negatives not allowed: -10,-5"
     };
 
-    const result = strategy.execute(providedValue);
+    const result = strategy.add(providedValue);
 
     expect(result).toEqual(expectedResult);
 });

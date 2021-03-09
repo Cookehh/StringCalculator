@@ -24,9 +24,9 @@ export class CustomDelimitedSumStrategy implements Strategy<Number>{
         this.cap = cap
     }
 
-    public execute(value: string | null): StrategyResult<number> {
+    public add(value: string | null): StrategyResult<number> {
         let parsedResult = this.parseDelimiter(value);
-        const validatorResponse = this.firstInChain.add(parsedResult);
+        const validatorResponse = this.firstInChain.execute(parsedResult);
         let result = this.calculateResult(validatorResponse);
         let error = this.calculateError(validatorResponse);
         return {
@@ -52,7 +52,7 @@ export class CustomDelimitedSumStrategy implements Strategy<Number>{
         let error: string | null = null
         switch(validatorResponse) {
             case ValidatorResponse.NEGATIVE: {
-                error = "Negatives not allowed: " + this.lastInChain.inputValue.filter(x => x < 0);
+                error = "Negatives not allowed: " + this.lastInChain.inputValue.filter(x => x < 0)
             }
         }
         return error

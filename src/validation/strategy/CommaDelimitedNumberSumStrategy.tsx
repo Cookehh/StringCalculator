@@ -17,8 +17,8 @@ export class CommaDelimitedNumberSumStrategy implements Strategy<number> {
         );
     }
 
-    public execute(value: String | null): StrategyResult<number> {
-        const validatorResponse = this.firstInChain.add(value);
+    public add(value: String | null): StrategyResult<number> {
+        const validatorResponse = this.firstInChain.execute(value);
         let result = this.calculateResult(validatorResponse);
         return {
             validatorResponse: validatorResponse == ValidatorResponse.EMPTY 

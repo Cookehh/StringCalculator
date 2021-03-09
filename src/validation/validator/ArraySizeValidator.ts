@@ -12,7 +12,7 @@ export class ArraySizeValidator extends Validator<Array<any>, Array<any>> {
         this.limit = lengthLimit;
     }
 
-    add(inValue: Array<any>): ValidatorResponse {
+    execute(inValue: Array<any>): ValidatorResponse {
         this.inputValue = inValue;
         if (inValue.length > this.limit) return ValidatorResponse.INVALID_LENGTH;
 

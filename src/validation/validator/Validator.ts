@@ -10,10 +10,10 @@ export abstract class Validator<T, S> {
         this.next = nextValidator;
     }
 
-    abstract add(inValue: T): ValidatorResponse;
+    abstract execute(inValue: T): ValidatorResponse;
 
     protected passToNextIfExists(): ValidatorResponse {
-        if(this.next != null) return this.next.add(this.result);
+        if(this.next != null) return this.next.execute(this.result);
         else return ValidatorResponse.SUCCESS;
     }
 }

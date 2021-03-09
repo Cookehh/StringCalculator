@@ -13,7 +13,7 @@ export class CommaDelimitedNumbersValidator extends Validator<String, Array<numb
         this.delimiter = delimiter;
     }
 
-    add(inValue: String): ValidatorResponse {
+    execute(inValue: String): ValidatorResponse {
         this.inputValue = inValue;
         const stringArray = inValue.split(this.delimiter);
         let numberArray: Array<number> = Array<number>(stringArray.length);
